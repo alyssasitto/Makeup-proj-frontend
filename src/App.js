@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import NavBar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import Eyes from "./pages/Eyes";
+import Lips from "./pages/Lips";
+import Face from "./pages/Face";
+import Eyebrows from "./pages/Eyebrows";
+
+import axios from "axios";
+import { useState, useEffect, useContext } from "react";
+import { Routes, Route } from "react-router-dom";
+import { MakeupContext } from "./context/makeupData.context";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const value = useContext(MakeupContext);
+
+	return (
+		<div className="App">
+			<NavBar />
+			<Routes>
+				<Route path="/" element={<HomePage />} />
+				<Route path="/eyes" element={<Eyes />} />
+				<Route path="/lips" element={<Lips />} />
+				<Route path="/face" element={<Face />} />
+				<Route path="/eyebrows" element={<Eyebrows />} />
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

@@ -1,13 +1,156 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	position: relative;
+	padding: 0 0.5rem;
+	font-family: "Roboto Condensed", sans-serif;
+	/* background-color: #f9dfdf; */
+	color: #5d3533;
+	width: 100vw;
+	min-height: 100vh;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #431c1c;
+}
+
+/* Navbar styles */
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	/* position: relative; */
+	padding: 0.5rem 0;
+	margin-bottom: 1rem;
+}
+
+.logo {
+	height: 2rem;
+}
+
+.makeup-img {
+	height: 7rem;
+	border-radius: 3px;
+}
+
+.hb,
+.close {
+	background-color: transparent;
+	border: none;
+	width: 2rem;
+	height: 2rem;
+	position: relative;
+	z-index: 2;
+}
+
+.list-items {
+	position: absolute;
+	background-color: #f9dfdf;
+	top: 0;
+	right: 0;
+	width: 12rem;
+	height: 100%;
+	font-size: 1.4rem;
+	padding: 3rem 0 0 0;
+	z-index: 1;
+	/* padding-top: 3rem;
+	padding-right: 3rem; */
+}
+
+.overlay {
+	height: 100%;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.618);
+	left: 0;
+	right: 0;
+}
+
+/* Home page styles */
+
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	color: #431c1c;
+}
+
+.home-description {
+	font-size: 1.3rem;
+	margin-bottom: 1rem;
+}
+
+/* Makeup card styles */
+
+.makeup-card {
+	border: 1px solid #f0aaa6;
+	padding: 1rem;
+	margin: 0 2rem 1rem;
+	border-radius: 5px;
+}
+
+.makeup-card h3 {
+	font-size: 1.3rem;
+}
+
+.makeup-card .brand {
+	margin-bottom: 0.2rem;
+}
+
+.makeup-card .price {
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-bottom: 0.4rem;
+}
+
+.makeup-card button {
+	font-size: 1.2rem;
+	border: none;
+	background-color: #f4c2c0;
+	padding: 0.4rem 1rem;
+	border-radius: 5px;
+}
+
+.shop-menu {
+	margin-bottom: 2rem;
+}
+
+.category-items {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-size: 1.2rem;
+	gap: 0.5rem;
+}
+
+.category-heading {
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.category-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+.arrow-icon {
+	height: 1rem;
+	transition: all 0.2s;
+}
+
+.category-container.show .arrow-icon {
+	transform: rotate(180deg);
 }
