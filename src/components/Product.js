@@ -13,7 +13,7 @@ function Product(props) {
 					{product.price_sign} {product.price}0
 				</p>
 
-				<Link to={`product/${product.id}`}>
+				<Link to={`/product/${product.id}`}>
 					<button>View</button>
 				</Link>
 			</div>

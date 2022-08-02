@@ -16,7 +16,7 @@ function HomePage() {
 	console.log("makeup items", makeupItems);
 	return (
 		<div className="home">
-			<h1>Savvy Cosmetics</h1>
+			<h1 className="heading">Savvy Cosmetics</h1>
 			<p className="home-description">
 				Keep your makeup kit fresh with Savvy Cosmetics. Shop top beauty brands
 				and new arrivals now!

@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MakeupContext } from "../context/makeupData.context";
 import Product from "../components/Product";
 import SelectMenu from "../components/SelectMenu";
+import SearchBar from "../components/SearchBar";
 
 function Eyebrows() {
 	const value = useContext(MakeupContext);
@@ -10,12 +11,29 @@ function Eyebrows() {
 		return makeup.product_type === "eyebrow";
 	});
 
-	console.log(eyebrowProducts);
+	// const [searchProduct, setSearchProduct] = useState("");
+	const [makeupList, setMakeupList] = useState(eyebrowProducts);
+	const [filteredList, setFilteredList] = useState(eyebrowProducts);
+
+	const searchQuery = (productToSearch) => {
+		const newList = makeupList.filter((product) => {
+			return product.name.toLowerCase().includes(productToSearch.toLowerCase());
+		});
+
+		setFilteredList(newList);
+		// setSearchProduct(event.target.value);
+	};
+
+	console.log("this is the list", makeupList);
+	console.log(filteredList);
+	// console.log(eyebrowProducts);
 	return (
 		<div>
 			<SelectMenu />
 
-			{eyebrowProducts.map((eyebrowProduct) => {
+			<SearchBar searchQuery={searchQuery} />
+
+			{filteredList.map((eyebrowProduct) => {
 				return <Product product={eyebrowProduct} />;
 			})}
 		</div>
