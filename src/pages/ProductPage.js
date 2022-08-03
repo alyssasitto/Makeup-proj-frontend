@@ -52,6 +52,13 @@ function ProductPage() {
 		setCartArray([...cartArray, productOrder]);
 	}
 
+	// function addedToCart() {
+	// 	handleAddProduct();
+	// 	setButtonClicked(true);
+	// }
+
+	console.log(cartArray);
+
 	return (
 		<div className="product-container">
 			{product && (
@@ -124,6 +131,8 @@ function ProductPage() {
 					<button onClick={handleAddProduct} className="add-btn">
 						Add to cart
 					</button>
+
+					{}
 				</div>
 			)}
 		</div>

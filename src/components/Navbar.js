@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/cart.context";
 
 function NavBar() {
 	const [menuBtn, setMenuBtn] = useState(true);
+	const { cartArray, setCartArray } = useContext(CartContext);
 
 	function toggleBtn() {
 		if (menuBtn) {
@@ -10,6 +12,10 @@ function NavBar() {
 		} else {
 			setMenuBtn(true);
 		}
+	}
+
+	function handleClick() {
+		<Link to={"/cart"}></Link>;
 	}
 
 	return (
@@ -40,6 +46,10 @@ function NavBar() {
 							</Link>
 							<Link to={"/login"}>
 								<li>Login</li>
+							</Link>
+							<Link to={"/cart"} className="shopping-cart">
+								<img src="images/shopping-cart.png" className="cart-icon"></img>
+								<div className="number">{cartArray.length}</div>
 							</Link>
 						</ul>
 					)}

@@ -7,6 +7,8 @@ import Lips from "./pages/Lips";
 import Face from "./pages/Face";
 import Eyebrows from "./pages/Eyebrows";
 import ProductPage from "./pages/ProductPage";
+import CartItems from "./pages/CartItems";
+import Checkout from "./pages/Checkout";
 
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
@@ -26,6 +28,8 @@ function App() {
 				<Route path="/face" element={<Face />} />
 				<Route path="/eyebrows" element={<Eyebrows />} />
 				<Route path="/product/:id" element={<ProductPage />} />
+				<Route path="/cart" element={<CartItems />} />
+				<Route path="/checkout" element={<Checkout />} />
 			</Routes>
 		</div>
 	);
