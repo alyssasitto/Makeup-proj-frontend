@@ -3,11 +3,15 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { MakeupContext } from "../context/makeupData.context";
+import { CartContext } from "../context/cart.context";
 
 function ProductPage() {
 	const value = useContext(MakeupContext);
 
+	const { cartArray, setCartArray } = useContext(CartContext);
+
 	const [product, setProduct] = useState(null);
+	const [productColor, setProductColor] = useState(null);
 
 	const { id } = useParams();
 
@@ -39,16 +43,14 @@ function ProductPage() {
 		}
 	}
 
-	const [chosenColor, setChosenColor] = useState("");
-	const [activeColor, setActiveColor] = useState(false);
+	function handleAddProduct() {
+		const productOrder = {
+			product,
+			productColor,
+		};
 
-	// function pickedColor() {
-	// 	if (chosenColor) {
-	// 		setActiveColor("active");
-	// 	}
-	// }
-
-	console.log(chosenColor);
+		setCartArray([...cartArray, productOrder]);
+	}
 
 	return (
 		<div className="product-container">
@@ -58,9 +60,22 @@ function ProductPage() {
 					<h1 className="product-name">{product.name}</h1>
 					<p className="brand-name">{product.brand}</p>
 					<p className="description-container">{product.description}</p>
-					<p>
+					<p className="price-container">
 						{product.price_sign} {product.price}0
 					</p>
+
+					{productColor && (
+						<div className={"color-chosen"}>
+							<span>
+								<div
+									className="circle"
+									style={{ backgroundColor: productColor.hex_value }}
+								></div>
+							</span>
+							<span className="chosen-name">{productColor.colour_name}</span>
+						</div>
+					)}
+
 					{product.product_colors.length > 0 && (
 						<div>
 							<div onClick={showList} className={"category-container " + arrow}>
@@ -74,21 +89,30 @@ function ProductPage() {
 
 							{colorsList && (
 								<div className="colors-container">
-									{product.product_colors.map((product, index) => {
+									{product.product_colors.map((productColor, index) => {
 										return (
 											<div
-												onClick={() => {
-													setChosenColor(index);
+												key={index}
+												onClick={(e) => {
+													console.log(productColor);
+													setProductColor(productColor);
+													setColorsList(false);
+													setArrow("");
 												}}
 												className={"color-container"}
-												value={index}
+												id={index}
 											>
 												<div className="color-box">
 													<div
 														className="circle"
-														style={{ backgroundColor: product.hex_value }}
+														style={{ backgroundColor: productColor.hex_value }}
 													></div>
-													<p>{product.colour_name}</p>
+													<p
+													// onClick={toggleCheck}
+													// className={activeColor ? "active" : ""}
+													>
+														{productColor.colour_name}
+													</p>
 												</div>
 											</div>
 										);
@@ -97,20 +121,9 @@ function ProductPage() {
 							)}
 						</div>
 					)}
-					{/* {product.product_colors.map((product) => {
-						return (
-							<div className={"color-container"}>
-								<div className="color-box">
-									<div
-										className="circle"
-										style={{ backgroundColor: product.hex_value }}
-									></div>
-									<p>{product.colour_name}</p>
-								</div>
-							</div>
-						);
-					})} */}
-					<button>Add to cart</button>
+					<button onClick={handleAddProduct} className="add-btn">
+						Add to cart
+					</button>
 				</div>
 			)}
 		</div>

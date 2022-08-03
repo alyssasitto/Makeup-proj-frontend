@@ -24,8 +24,6 @@ function Eyebrows() {
 		// setSearchProduct(event.target.value);
 	};
 
-	console.log("this is the list", makeupList);
-	console.log(filteredList);
 	// console.log(eyebrowProducts);
 	return (
 		<div>

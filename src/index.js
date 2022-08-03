@@ -6,12 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { MakeupProviderWrapper } from "./context/makeupData.context";
+import { CartProviderWrapper } from "./context/cart.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<Router>
 		<MakeupProviderWrapper>
-			<App />
+			<CartProviderWrapper>
+				<App />
+			</CartProviderWrapper>
 		</MakeupProviderWrapper>
 	</Router>
 );
