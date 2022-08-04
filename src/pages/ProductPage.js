@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { MakeupContext } from "../context/makeupData.context";
 import { CartContext } from "../context/cart.context";
 import { AuthContext } from "../context/auth.context";
+const API_URL = process.env.FAKE_API_URL;
 
 function ProductPage() {
 	const value = useContext(MakeupContext);
@@ -19,7 +20,7 @@ function ProductPage() {
 
 	const getProduct = () => {
 		axios
-			.get(`http://localhost:3001/makeup/${id}`)
+			.get(`${API_URL}/${id}`)
 			.then((product) => {
 				console.log(product.data);
 
