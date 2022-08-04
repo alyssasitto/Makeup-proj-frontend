@@ -11,6 +11,7 @@ import CartItems from "./pages/CartItems";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Confirmation from "./pages/Confirmation";
 
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
@@ -34,6 +35,7 @@ function App() {
 				<Route path="/checkout" element={<Checkout />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/login" element={<Login />} />
+				<Route path="/confirmation" element={<Confirmation />} />
 			</Routes>
 		</div>
 	);
