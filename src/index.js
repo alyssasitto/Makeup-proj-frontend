@@ -7,14 +7,17 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { MakeupProviderWrapper } from "./context/makeupData.context";
 import { CartProviderWrapper } from "./context/cart.context";
+import { AuthProviderWrapper } from "./context/auth.context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<Router>
 		<MakeupProviderWrapper>
-			<CartProviderWrapper>
-				<App />
-			</CartProviderWrapper>
+			<AuthProviderWrapper>
+				<CartProviderWrapper>
+					<App />
+				</CartProviderWrapper>
+			</AuthProviderWrapper>
 		</MakeupProviderWrapper>
 	</Router>
 );

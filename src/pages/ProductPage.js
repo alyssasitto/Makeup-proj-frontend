@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 
 import { MakeupContext } from "../context/makeupData.context";
 import { CartContext } from "../context/cart.context";
+import { AuthContext } from "../context/auth.context";
 
 function ProductPage() {
 	const value = useContext(MakeupContext);
 
-	const { cartArray, setCartArray } = useContext(CartContext);
+	const { cartArray, addToCart } = useContext(CartContext);
+	const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
 	const [product, setProduct] = useState(null);
 	const [productColor, setProductColor] = useState(null);
@@ -49,7 +51,17 @@ function ProductPage() {
 			productColor,
 		};
 
-		setCartArray([...cartArray, productOrder]);
+		if (!isLoggedIn) {
+			return (
+				<div>
+					<p>please log in</p>
+				</div>
+			);
+		} else {
+			addToCart(productOrder);
+		}
+
+		// setCartArray([...cartArray, productOrder]);
 	}
 
 	// function addedToCart() {

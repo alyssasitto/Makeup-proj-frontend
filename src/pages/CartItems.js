@@ -3,14 +3,19 @@ import { CartContext } from "../context/cart.context";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-let total = 0;
-
 function CartItems() {
 	const { cartArray, setCartArray } = useContext(CartContext);
 
+	function handleDelete(index) {
+		const newCart = cartArray.splice(index, 1);
+		setCartArray(newCart);
+	}
+
 	return (
 		<div>
-			{cartArray.map((cartItem) => {
+			<h1 className="cart-heading">Cart</h1>
+
+			{cartArray.map((cartItem, index) => {
 				const { product, productColor } = cartItem;
 
 				return (
@@ -36,22 +41,39 @@ function CartItems() {
 								</div>
 							)}
 
-							<button>Delete</button>
+							<button
+								onClick={() => {
+									handleDelete(index);
+								}}
+							>
+								Delete
+							</button>
 						</div>
 					</div>
 				);
 			})}
 
-			<p>
-				Total:{" "}
+			<p className="total">
+				Total:
 				{cartArray.map((prod) => {
-					const { product, productColor } = prod;
-					total += product.price;
-					return String(total);
+					let total = 0;
+					const { product } = prod;
+					console.log(product.price);
+					return (total += Number(product.price));
+
+					{
+						/* return Number(total); */
+					}
+					{
+						/* const { product, productColor } = prod;
+					total = product.price; */
+					}
 				})}
 			</p>
 
-			<Link to={"/checkout"}>Checkout</Link>
+			<Link to={"/checkout"} className="checkout">
+				Checkout
+			</Link>
 		</div>
 	);
 }

@@ -100,6 +100,17 @@ nav {
 	font-size: 1.2rem;
 }
 
+.logout-btn {
+	display: block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 0.5rem;
+	font-family: "Roboto Condensed", sans-serif;
+	background-color: transparent;
+	border: none;
+	font-size: 1.4rem;
+}
 /* Home page styles */
 
 .heading {
@@ -257,11 +268,12 @@ nav {
 }
 
 .search-bar {
-	padding: 0.8rem 0.8rem 0.2rem;
+	padding: 0.8rem 0.8rem 0.8rem;
 	border-radius: 5px;
 	border: none;
 	background-color: #f4c2c0;
 	margin-bottom: 1rem;
+	font-size: 1.2rem;
 }
 
 ::placeholder {
@@ -276,4 +288,23 @@ nav {
 .center-helper {
 	display: flex;
 	justify-content: center;
+}
+
+/* cart page */
+
+.cart-heading {
+	margin-bottom: 1rem;
+}
+
+.total {
+	font-size: 2rem;
+	font-weight: bold;
+	margin-bottom: 1.2rem;
+}
+
+.checkout {
+	font-size: 2rem;
+	background-color: #f4c2c0;
+	padding: 0.5rem;
+	border-radius: 10px;
 }
