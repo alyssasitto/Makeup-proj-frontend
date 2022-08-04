@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { MakeupContext } from "../context/makeupData.context";
 import { CartContext } from "../context/cart.context";
 import { AuthContext } from "../context/auth.context";
-const API_URL = process.env.FAKE_API_URL;
+const API_URL = process.env.REACT_APP_FAKE_API_URL;
 
 function ProductPage() {
 	const value = useContext(MakeupContext);

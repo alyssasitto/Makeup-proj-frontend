@@ -8,7 +8,7 @@ function CartProviderWrapper(props) {
 	const [cartArray, setCartArray] = useState([]);
 	const { user, isLoggedIn } = useContext(AuthContext);
 
-	const API_URL = process.env.FAKE_API_URL;
+	const API_URL = process.env.REACT_APP_FAKE_API_URL;
 
 	useEffect(() => {
 		if (isLoggedIn) {

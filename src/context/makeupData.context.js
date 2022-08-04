@@ -6,7 +6,7 @@ const MakeupContext = createContext();
 function MakeupProviderWrapper(props) {
 	const [makeupList, setMakeupList] = useState([]);
 
-	const API_URL = process.env.FAKE_API_URL;
+	const API_URL = process.env.REACT_APP_FAKE_API_URL;
 
 	useEffect(() => {
 		axios
