@@ -49,7 +49,7 @@ function NavBar() {
 											src="images/shopping-cart.png"
 											className="cart-icon"
 										></img>
-										<div className="number">{cartArray.length}</div>
+										{/* <div className="number">{cartArray.length}</div> */}
 									</Link>
 									<button onClick={logOutUser} className="logout-btn">
 										Logout
@@ -72,6 +72,41 @@ function NavBar() {
 							)}
 						</ul>
 					)}
+				</div>
+				<div className="desktop-nav">
+					<ul className="list-items">
+						{isLoggedIn && (
+							<div className="helper">
+								<Link to={"/"}>
+									<li>Home</li>
+								</Link>
+								<Link to={"/cart"} className="shopping-cart">
+									<img
+										src="images/shopping-cart.png"
+										className="cart-icon"
+									></img>
+									{/* <div className="number">{cartArray.length}</div> */}
+								</Link>
+								<button onClick={logOutUser} className="logout-btn">
+									Logout
+								</button>
+							</div>
+						)}
+
+						{!isLoggedIn && (
+							<div className="helper">
+								<Link to={"/"}>
+									<li>Home</li>
+								</Link>
+								<Link to={"/login"}>
+									<li>Login</li>
+								</Link>
+								<Link to={"/signup"}>
+									<li>Signup</li>
+								</Link>
+							</div>
+						)}
+					</ul>
 				</div>
 			</nav>
 		</div>

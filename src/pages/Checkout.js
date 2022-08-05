@@ -70,7 +70,7 @@ function Checkout() {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="form">
 				<div>
 					<label for="name">Name:</label>
 					<input type="text" name="name" value={name} onChange={handleName} />

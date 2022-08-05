@@ -43,7 +43,7 @@ function Login(props) {
 		<div className="LoginPage">
 			<h1>Login</h1>
 
-			<form onSubmit={handleLoginSubmit}>
+			<form onSubmit={handleLoginSubmit} className="form">
 				<label>Email:</label>
 				<input type="email" name="email" value={email} onChange={handleEmail} />
 
